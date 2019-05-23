@@ -1,0 +1,75 @@
+<html>
+	<!--
+		Author: Tai Groot
+		Developed in coordination with the SIOT Lab
+		https://www.scu.edu/engineering/academic-programs/department-of-computer-science-and-engineering/research/scu-internet-of-things-research-lab/
+	 !-->
+	<head>
+		<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+		<link
+			type="text/css"
+			rel="stylesheet"
+			href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+			/>
+
+		<script src="https://unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
+		<script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+	</head>
+	<body>
+		<center><h1>Flomosys Live Readings</h1></center>
+		<div id="left">
+			<div id="locations">
+				<template>
+					<div>
+						<b-table
+							id="deviceRegistry"
+							:tbody-transition-props="transProps" 
+							striped 
+							bordered
+							fixed
+							hover 
+							:items="locations" 
+							:fields="streets"
+							></b-table>
+					</div>
+				</template>
+			</div>
+		</div>
+		<div id="right">
+			<div id="metrics">
+				<template>
+					<div>
+						<b-table
+							id="detailsTable"
+							:tbody-transition-props="transProps" 
+							striped 
+							hover
+							fixed
+							ref="details"
+							bordered
+							:sort-desc.sync="dateSort"
+							:items="metrics" 
+							:fields="fields"
+							></b-table>
+					</div>
+				</template>
+			</div>
+		</div>
+		<style>
+table#detailsTable .flip-list-move {
+	transition: transform 1s;
+}
+div#left {
+	width: calc(20% - 10px);
+	display: inline-block;
+	float: left;
+}
+
+div#right {
+	display: inline-block;
+	width: 80%;
+}
+		</style>
+		<script src="/app.js"></script>
+</html>
