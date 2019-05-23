@@ -64,7 +64,9 @@ The `node` folder contains the Arduino code that runs on the sensor.
 # Node Provisioning
 
 The code for the Sensor Node can be opened in the Arduino IDE and uploaded to the Sensor Node over an FTDI serial connection.
+Flomosys makes use of several plugins to reduce power usage and to interface with the LoRa antenna, such as the [Low Power](www.rocketscream.com) library by Rocket Scream Electronics, the Arduino and the [RadioHead](https://github.com/hallard/RadioHead) library.
 
+Before compiling the Arduino code for the Sensor node, please make sure these libraries are installed, and put a copy of the RadioHead library into the lib folder.
 
 # Cloud Deployment
 
@@ -81,6 +83,14 @@ First, set you APIKEY Environment Variable, then run the following command to bu
 The base code can be compiled and run on the Raspberry Pi using the provided Makefile. 
 However, be sure to include an API Key inside the security file so that it can communicate with the Endpoint.
 Also note that the binary must be run as root, as it communicates with the LoRa antennas using the GPIO pins.
+
+In order to compile and run the Base Station's binary, you'll need to use the BCM library to interface with the GPIO pins. 
+Please note that this may also make cross-compiling difficult.
+If you do not already have the BCM libraries installed on the Raspberry Pi, you can get them from Mike McCauley's site [here.](https://www.airspayce.com/mikem/bcm2835/)
+
+## Liscensing 
+
+All code is liscensed under the GPLv2 Liscense. Note that some plugins and libraries may themselves bundle different liscenses, but SIOTLAB nor any of its members past or present are responsible for maintaining or providing support for these libraries.
 
 ## Contributors
 
