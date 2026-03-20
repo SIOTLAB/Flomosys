@@ -13,7 +13,7 @@
   "author": "Tai Groot",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^10.1.0",
     "eslint-config-google": "^0.13.0",
     "eslint-plugin-vue": "^5.2.2"
   }
